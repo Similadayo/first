@@ -9,8 +9,8 @@ type Product struct {
 	gorm.Model
 	Name        string         `gorm:"not null" json:"name"`
 	Description string         `gorm:"not null" json:"description"`
-	Price       float32        `gorm:"not null" json:"price"`
-	Discount    float32        `json:"discount"`
+	Price       float64        `gorm:"not null" json:"price"`
+	Discount    float64        `json:"discount"`
 	Category    Category       `gorm:"foreignkey:CategoryID" json:"category"`
 	CategoryID  uint           `gorm:"not null" json:"category_id"`
 	Sizes       pq.StringArray `gorm:"type:text[]" json:"sizes"`

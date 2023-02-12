@@ -34,7 +34,7 @@ func InitializeDB() {
 	}
 
 	DB.AutoMigrate(&models.User{}, &models.BlacklistToken{}, &models.Suspension{},
-		&models.Category{}, &models.Product{})
+		&models.Category{}, &models.Product{}, &models.Order{})
 }
 
 func GetDB() (*gorm.DB, error) {

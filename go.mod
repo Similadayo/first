@@ -5,7 +5,6 @@ go 1.19
 require (
 	github.com/form3tech-oss/jwt-go v3.2.5+incompatible
 	github.com/gin-gonic/gin v1.8.2
-	github.com/google/uuid v1.3.0
 	github.com/jinzhu/gorm v1.9.16
 	github.com/joho/godotenv v1.4.0
 	github.com/lib/pq v1.1.1
@@ -13,6 +12,7 @@ require (
 )
 
 require (
+	github.com/anjolabassey/Rave-go v0.0.0-20220227000759-c0b94887bf0b // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect

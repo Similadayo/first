@@ -46,6 +46,16 @@ func InitializeRoutes(r *gin.Engine) {
 		productController.POST("/createproduct", middleware.Authorization, controllers.CreateProduct)
 		productController.PUT("/updateproduct/:id", middleware.Authorization, controllers.UpdateProduct)
 		productController.DELETE("/deleteproduct/:id", middleware.Authorization, controllers.DeleteProduct)
+		productController.GET("/search", middleware.Authorization, controllers.SearchProducts)
 	}
 
+	orderController := r.Group("/order")
+	{
+		orderController.GET("/:id", middleware.Authorization, controllers.GetOrderByID)
+		orderController.GET("/", middleware.Authorization, controllers.GetOrders)
+		orderController.POST("/new", middleware.Authorization, controllers.CreateOrder)
+		orderController.PUT("/update/:id", middleware.Authorization, controllers.UpdateOrder)
+		orderController.DELETE("/delete/:id", middleware.Authorization, controllers.DeleteOrder)
+
+	}
 }
