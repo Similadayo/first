@@ -209,3 +209,23 @@ func DeleteProduct(c *gin.Context) {
 		"message": "Category deleted successfully",
 	})
 }
+
+func SearchProducts(c *gin.Context) {
+	// Get the search query from the request parameters
+	query := c.Query("query")
+	if query == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Missing search query"})
+		return
+	}
+
+	// Search for products in the database that match the query
+	var products []models.Product
+	if err := db.DB.Where("name LIKE ?", "%"+query+"%").Find(&products).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error searching for products in the database"})
+		log.Println(err)
+		return
+	}
+
+	// Return the search results
+	c.JSON(http.StatusOK, gin.H{"products": products})
+}
