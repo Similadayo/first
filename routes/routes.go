@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/Similadayo/controllers"
 	"github.com/Similadayo/middleware"
+	"github.com/Similadayo/payment"
 	"github.com/gin-gonic/gin"
 )
 
@@ -56,6 +57,8 @@ func InitializeRoutes(r *gin.Engine) {
 		orderController.POST("/new", middleware.Authorization, controllers.CreateOrder)
 		orderController.PUT("/update/:id", middleware.Authorization, controllers.UpdateOrder)
 		orderController.DELETE("/delete/:id", middleware.Authorization, controllers.DeleteOrder)
-
 	}
+
+	//payment routes
+	r.POST("/pay", middleware.Authorization, payment.InitializePayment)
 }
