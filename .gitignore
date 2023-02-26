@@ -16,3 +16,4 @@ build/
 # Temporary files
 tmp/
 .vscode/launch.json
+node_modules
