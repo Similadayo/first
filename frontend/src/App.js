@@ -33,7 +33,7 @@ function App() {
             <Route path="/admin/dashboard" element={<AdminDashboard/>} />
           </Routes>
         </main>
-        <Footer />
+        {window.location.pathname !== '/register' && window.location.pathname !== '/login' && <Footer />}
       </div>
     </Router>
   );
